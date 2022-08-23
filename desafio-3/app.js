@@ -32,7 +32,7 @@ const opciones = (opc) => {
             alert("Se agrego: notebook asus r7 16gb")
 
             //const obj1 = { nombre: "notebook asus r7 16gb", precio: 180000 }
-            const obj1 = new Producto("notebook","asus", "r7", "16gb",18000)
+            const obj1 = new Producto("notebook","asus", "r7", "16gb",180000)
 
             productos.push(obj1)
             break;
@@ -67,9 +67,18 @@ const precioTotal = () => {
     return total
 }
 const verProductos = () => {
-    document.write("Los productos que usted va comprar son:")
+    
+    let encabezado = document.getElementById("encabezado")
+    encabezado.innerHTML=`<h2>Los productos que usted va comprar son:</h2>`
+
+    let carrito = document.getElementById("carrito")
+    
     productos.forEach(element => {
-        document.write(`<br>La ${element.nombre} ${element.marca}--->$  ${element.precio}`)
+        
+        let li = document.createElement("li")
+        li.innerHTML=`<h3> ${element.nombre} ${element.marca}----->$  ${element.precio}</h3>`
+        
+        carrito.appendChild(li)
     });
 }
 do {
