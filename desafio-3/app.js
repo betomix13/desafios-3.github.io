@@ -1,127 +1,69 @@
+//creo el constructor como referencia para el producto 
 class Producto{
-    constructor(nombre,marca,procesador,ram,precio){
-        this.nombre=nombre;
+    constructor(marca,procesador,precio){
         this.marca=marca;
         this.procesador=procesador;
-        this.ram=ram;
         this.precio=precio;
     }
         
 }
 
+//defino variables
 
 let total = 0
 let continuar = "S"
-let precioFin = 0
-let totalFin = 0
+let precioFinal = 0
+
 const productos = []
 
+//defino dom
 
-alert(" ░░░▒▓ BIENVENIDO A BTX COMPUTACION ▓▒░░░")
+let titulo1 =document.getElementById("titulo1")
+titulo1.innerHTML = "░▒▓ BIENVENIDO A BTX COMPUTACION ▓▒░"
 
-const menu = () => {
-    let opcion = Number(prompt("Seleccione sus productos: \n1- Notebook asus r7 16gb -> $180.000\n2- Notebook dell r5 8gb ->$140.000 \n3- Notebook lenovo r3 4gb ->$100.000"))
+//traigo con id 
 
-    return opcion
-}
+let prod1= document.getElementById("prod1")
+let prod2= document.getElementById("prod2")
+let prod3= document.getElementById("prod3")
 
 
-const opciones = (opc) => {
-    switch (opc) {
-        case 1:
-            alert("Se agrego: notebook asus r7 16gb")
-
-            //const obj1 = { nombre: "notebook asus r7 16gb", precio: 180000 }
-            const obj1 = new Producto("notebook","asus", "r7", "16gb",180000)
-
-            productos.push(obj1)
-            break;
-
-        case 2:
-            alert("Se agrego: notebook dell r5 8gb")
-
-            //const obj2 = { nombre: "notebook dell r5 8gb", precio: 140000 }
-            const obj2 = new Producto("Notebook","Dell", "R5", "8gb",140000)
-            productos.push(obj2)
-            break;
-            case 3:
-                alert("Se agrego: notebook lenovo r3 4gb")
-                
-                //const obj3 = { nombre: "notebook lenovo r3 4gb", precio: 100000 }
-            const obj3 = new Producto("Notebook","Lenovo", "R3", "4gb",100000)
-            productos.push(obj3)
-            break;
-
-        default:
-            alert("Usted no ha seleccionado una opcion valida")
-
-            break;
-    }
-
-}
-
-const precioTotal = () => {
-    for (const prod of productos) {
-        total += prod.precio
-    }
-    return total
-}
-const verProductos = () => {
+let listaProd =document.getElementById("productos")
+listaProd.onclick =function(e){
+    e.preventDefault()
+    let opc = e.target.id
     
-    let encabezado = document.getElementById("encabezado")
-    encabezado.innerHTML=`<h2>Los productos que usted va comprar son:</h2>`
 
-    let carrito = document.getElementById("carrito")
-    
-    productos.forEach(element => {
-        
-        let li = document.createElement("li")
-        li.innerHTML=`<h3> ${element.nombre} ${element.marca}----->$  ${element.precio}</h3>`
-        
-        carrito.appendChild(li)
-    });
-}
-do {
-    let rta = menu()
-    opciones(rta)
-    if (rta < 6 && rta > 0) {
-
-        continuar = prompt("Desea agregar otro producto S/N")
-        if (continuar == "N" || continuar == "n") {
-            
-            let error = true
-                while (error) {
-                    pago = Number(prompt("Usted abonara en\n1-Efectivo\n2-Tarjeta de credito"))
-
-                    if (pago == 1) {
-
-                        verProductos()
-                        document.write("<br>" + "♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦")
-                        document.write(`<br> El total de su compra es de : ${precioTotal()}`)
-                        break
-                    } else if (pago == 2) {
-                        let cuotas = Number(prompt("ingrese el numero de cuotas"))
-                        precioFin = precioTotal();
-                        totalFin = (precioFin / cuotas) * 1.30;
-                        verProductos();
-                        document.write("<br>" + "♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦♦")
-                        document.write(`<br> usted tendra que abonar ${cuotas} cuotas con un valor de ${totalFin}`)
-                        break
-                    } else {
-                        alert("Opcion no valida, vuelva a intentar")
-                        
-
-                    }
-                }
-        }
-
-
-    } else if (continuar == "S" || continuar == "s") {
-        continue
-    } else {
-        alert("Opcion no valida, vuelva a intentar")
-        continuar = "S"
+    if (opc == "prod1"){
+        const producto1  = new Producto ("Asus", "r7",180000)
+        productos.push(producto1)
+        precioFinal += producto1.precio 
+        mostrarItems(producto1)
+    }else if(opc == "prod2"){
+        const producto2  = new Producto ("Dell", "r5",140000)
+        productos.push(producto2)
+        precioFinal += producto2.precio 
+        mostrarItems(producto2)
+    }else {
+        const producto3  = new Producto ("Lenovo", "r3",100000)
+        productos.push(producto3)
+        precioFinal += producto3.precio 
+        mostrarItems(producto3)
     }
+}
 
+//defino funciones
+function mostrarItems(producto){
+    let listaPrev = document.getElementById("listaPrev")
+    let currentProd = document.createElement("p")
 
-} while (continuar == "S" || continuar == "s");
+    currentProd.innerHTML=(`${producto.marca} ${producto.procesador} => ${producto.precio}`)
+    listaPrev.appendChild(currentProd)
+}
+
+let pulsar = document.getElementById("verProd")
+pulsar.onclick =function(e){
+    e.preventDefault()
+    let totality = document.getElementById("totality")
+    totality.innerHTML=(`<p>el total de su compra es ${precioFinal}</p>`)
+}
