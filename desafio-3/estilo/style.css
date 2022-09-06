@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Istok Web", sans-serif;
+  
+}
+
+body {
+  display: flex;
+  justify-content: space-around ;
+  align-items: stretch;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-image: url("../img/performance.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: mov 30s infinite linear alternate;
+}
+@keyframes mov {
+  from {
+    background-position: bottom left;
+  }
+  to {
+    background-position: top right;
+  }
+}
+.titulo{
+ position: fixed;
+ padding-left: 20px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ font-size: 20px; 
+ color:#04b3fa ;
+}
+.container{
+  width: auto;
+  padding-top: 100px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: none;
+}
+
+.carrito{
+  margin: 100px;
+  padding-top: 25px;
+  position: relative;
+  width: 400px;
+  height: cover;
+  background: #191919;
+  border-radius: 20px;
+  font-size: 20px;
+  color: #04b3fa;
+  text-transform: uppercase;
+  padding-left: 10px;
+}
+#totality{
+  margin-top: 20px;
+  font-size: 20px;
+  text-transform: uppercase;
+  padding-left: 10px;
+  color: chartreuse;
+}
+#verProd, #vaciarCarrito{
+  position: relative;
+  top: 10px;
+  
+  padding: 10px 30px;
+  margin-top: 15px;
+  color: #000000;
+  text-decoration: none;
+  background: #ffce00;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 20px;
+  
+}
+  
+  
+
+
+.card {
+  margin: 25px;
+  position: relative;
+  width: 320px;
+  height: 480px;
+  background: #191919;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  width: 100%;
+  height: 100%;
+  background: #ffce00;
+  transform: skewY(345deg);
+  transition: 0.5s;
+}
+
+.card:hover::before {
+  top: -70%;
+  transform: skewY(390deg);
+}
+
+.card::after {
+  content: "Notebook";
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  
+  font-size: 4em;
+  color: rgba(3, 147, 203, 0.1);
+}
+
+.card .imgBox {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  z-index: 1;
+}
+
+.card .contentBox {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+}
+
+.card .contentBox h3 {
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card .contentBox .price {
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.card .contentBox #prod1, #prod2, #prod3 {
+  position: relative;
+  top: 100px;
+  opacity: 0;
+  padding: 10px 30px;
+  margin-top: 15px;
+  color: #000000;
+  text-decoration: none;
+  background: #ffce00;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.5s;
+}
+
+.card:hover .contentBox #prod1 {
+  top: 0;
+  opacity: 1;
+}
+.card:hover .contentBox #prod2 {
+  top: 0;
+  opacity: 1;
+}
+.card:hover .contentBox #prod3 {
+  top: 0;
+  opacity: 1;
+}
+
+.note {
+  height: 300px;
+  width: auto;
+}

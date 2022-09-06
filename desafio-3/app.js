@@ -18,8 +18,7 @@ const productos = []
 
 //defino dom
 
-let titulo1 =document.getElementById("titulo1")
-titulo1.innerHTML = "░▒▓ BIENVENIDO A BTX COMPUTACION ▓▒░"
+
 
 //const prodAlistados = document.getElementById("prodAlistados")
 const vaciarCarrito = document.getElementById("vaciarCarrito")
@@ -55,14 +54,16 @@ listaProd.onclick =function(e){
         guardarLocalStorage("listaProd",JSON.stringify(productos))
         mostrarItemsLocalStorage()
 
-    }else {
+    }else if(opc =="prod3"){
         const producto3  = new Producto ("Lenovo", "r3",100000)
         precioFinal += producto3.precio 
         guardarLocalStorage("total",precioFinal)
         productos.push(producto3)
         guardarLocalStorage("listaProd",JSON.stringify(productos))
         mostrarItemsLocalStorage()
-    }
+    }else {
+      console.log("error")
+    } 
 }
 
 //defino funciones
@@ -98,5 +99,5 @@ vaciarCarrito.onclick = function (e) {
 pulsar.onclick =function(e){
     e.preventDefault()
     
-    precioTotal.innerHTML=(`<p>el total de su compra es ${localStorage.getItem("total")}</p>`)
+    precioTotal.innerHTML=(`<p>el total de su compra es: $${localStorage.getItem("total")}</p>`)
 }

@@ -4,31 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./estilo/style.css">
+    <title>BTX</title>
 </head>
 <body>
-    <h3 id="titulo1"></h3>
-    <div id="productos">
-        <div>
-            <p>Notebook asus r7 16gb</p>
-            <p>precio $180000</p>
-            <button id="prod1">agregar</button>
-        </div>
-        <div>
-            <p>Notebook dell r5 8gb</p>
-            <p>precio $140000</p>
-            <button id="prod2">agregar</button>
-        </div>
-        <div>
-            <p>Notebook lenovo r3 4gb</p>
-            <p>precio $100000</p>
-            <button id="prod3">agregar</button>
-        </div>
-       
-    </div>
-    <div id="listaPrev"></div>
+  <div class="titulo">
+    <h1>BTX COMPUTACION</h1>
+    <h2>¡Aprovechá las ofertas destacadas!</h2>
     
-    <div>
+  </div>
+  <div id="productos">
+    <div class="container">  
+      <div class="card">
+
+        <div class="imgBox">
+          <img src="./img/Asus-Laptop-PNG-Picture.png" alt="1" class="note">
+        </div>
+      
+        <div class="contentBox">
+          <h3>Asus ryzen7 8gb 240SSD</h3>
+          <h2 class="price">$ 180.000 </h2>
+          <div >
+          <!-- <a href="#" class="buy">Agregar a carrito</a> -->
+          <button id="prod1">Agregar a carrito</button>
+          </div>
+        </div>
+      
+      </div>
+
+      <div class="card">
+
+        <div class="imgBox">
+          <img src="./img/dell-laptop copia.png" alt="2" class="note">
+        </div>
+      
+        <div class="contentBox">
+          <h3>Dell Ryzen 5 8gb 240 SDD</h3>
+          <h2 class="price">$140.000</h2>
+          <div >
+            <!-- <a href="#" class="buy">Agregar a carrito</a> -->
+            <button id="prod2">Agregar a carrito</button>
+            </div>
+        </div>
+      
+      </div>
+
+      <div class="card">
+
+        <div class="imgBox">
+          <img src="./img/lenovo-laptop.png" alt="3" class="note">
+        </div>
+      
+        <div class="contentBox">
+          <h3>Lenovo Ryzen 3 4g 120SSD</h3>
+          <h2 class="price">$100.000</h2>
+          <div >
+            <!-- <a href="#" class="buy">Agregar a carrito</a> -->
+            <button id="prod3">Agregar a carrito</button>
+            </div>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+  <div class="carrito">
+    <div id="listaPrev"></div>
+      
+    <div class="botonC">
         <input type="button"  value="Vaciar Carrito" id="vaciarCarrito">
     </div>
 
@@ -36,8 +78,7 @@
         <button id="verProd">Finalizar Compra</button>
     </div>
     <div id="totality"></div>
-
-    
-    <script src="app.js"></script>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
