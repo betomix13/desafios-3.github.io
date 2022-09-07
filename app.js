@@ -40,27 +40,15 @@ listaProd.onclick =function(e){
 
     if (opc == "prod1"){
         const producto1  = new Producto ("Asus", "r7",180000)
-        precioFinal += producto1.precio 
-        guardarLocalStorage("total", precioFinal)
-        productos.push(producto1)
-        guardarLocalStorage("listaProd",JSON.stringify(productos))
-        mostrarItemsLocalStorage()
+        cargaProd(producto1)
 
     }else if(opc == "prod2"){
         const producto2  = new Producto ("Dell", "r5",140000)
-        precioFinal += producto2.precio 
-        guardarLocalStorage("total",precioFinal)
-        productos.push(producto2)
-        guardarLocalStorage("listaProd",JSON.stringify(productos))
-        mostrarItemsLocalStorage()
+        cargaProd(producto2)
 
     }else if(opc =="prod3"){
         const producto3  = new Producto ("Lenovo", "r3",100000)
-        precioFinal += producto3.precio 
-        guardarLocalStorage("total",precioFinal)
-        productos.push(producto3)
-        guardarLocalStorage("listaProd",JSON.stringify(productos))
-        mostrarItemsLocalStorage()
+        cargaProd(producto3)
     }else {
       console.log("error")
     } 
@@ -72,7 +60,13 @@ function guardarLocalStorage(key, value) {
     return localStorage.setItem(key, value)
 }
 
-
+function cargaProd(obj){
+    precioFinal += obj.precio 
+        guardarLocalStorage("total",precioFinal)
+        productos.push(obj)
+        guardarLocalStorage("listaProd",JSON.stringify(productos))
+        mostrarItemsLocalStorage()
+}
 function mostrarItemsLocalStorage(){
     //let listaPrev = document.getElementById("listaPrev")
     const listaPLS = JSON.parse(localStorage.getItem("listaProd"))
@@ -92,6 +86,7 @@ vaciarCarrito.onclick = function (e) {
     localStorage.clear()
     guardarLocalStorage("total", 0)
     productos.length = 0
+    precioFinal=0
     
 }
 
