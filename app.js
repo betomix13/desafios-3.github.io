@@ -41,14 +41,16 @@ listaProd.onclick =function(e){
     if (opc == "prod1"){
         const producto1  = new Producto ("Asus", "r7",180000)
         cargaProd(producto1)
-
+        avisar()
     }else if(opc == "prod2"){
         const producto2  = new Producto ("Dell", "r5",140000)
         cargaProd(producto2)
-
+        avisar()
     }else if(opc =="prod3"){
         const producto3  = new Producto ("Lenovo", "r3",100000)
         cargaProd(producto3)
+        avisar()
+        
     }else {
       console.log("error")
     } 
@@ -87,7 +89,7 @@ vaciarCarrito.onclick = function (e) {
     guardarLocalStorage("total", 0)
     productos.length = 0
     precioFinal=0
-    
+    alertaNeg()
 }
 
 
@@ -95,4 +97,56 @@ pulsar.onclick =function(e){
     e.preventDefault()
     
     precioTotal.innerHTML=(`<p>el total de su compra es: $${localStorage.getItem("total")}</p>`)
+    alertaPos()
+}
+
+function avisar(){
+
+    swal({
+        title:"Se agrego",
+        text: "Exitosamente ",
+        icon: "success",
+        button: true,
+        
+    });
+}
+function alertaPos(){
+
+
+    Toastify({
+        text: "COMPRA EXITOSA",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+        background: "linear-gradient(to right, #00b09b, #0e0101)",
+        },
+        onClick: function(){} // Callback after click
+    })
+    .showToast();
+}
+
+function alertaNeg(){
+
+
+    Toastify({
+        text: "SE VACIO EL CARRITO",
+        duration: 3000,
+        destination: "https://github.com/apvarun/toastify-js",
+        newWindow: true,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+        background: "linear-gradient(to right, #741b1b, #0e0101)",
+        
+        },
+        onClick: function(){} // Callback after click
+    })
+    .showToast();
 }
