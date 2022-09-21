@@ -45,7 +45,7 @@ listaProd.onclick =function(e){
 
 const fetching=async(id)=>{
 
-    const respu=await fetch ('/producto.json')
+    const respu=await fetch ('./producto.json')
         const data =await respu.json()
         const item = data[id]
         console.log(item)
