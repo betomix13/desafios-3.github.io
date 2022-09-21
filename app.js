@@ -1,12 +1,3 @@
-//creo el constructor como referencia para el producto 
-class Producto{
-    constructor(marca,procesador,precio){
-        this.marca=marca;
-        this.procesador=procesador;
-        this.precio=precio;
-    }
-        
-}
 
 //defino variables
 
@@ -39,24 +30,28 @@ listaProd.onclick =function(e){
     
 
     if (opc == "prod1"){
-        const producto1  = new Producto ("Asus", "r7",180000)
-        cargaProd(producto1)
-        avisar()
+        fetching(0)
     }else if(opc == "prod2"){
-        const producto2  = new Producto ("Dell", "r5",140000)
-        cargaProd(producto2)
-        avisar()
+        fetching(1)
     }else if(opc =="prod3"){
-        const producto3  = new Producto ("Lenovo", "r3",100000)
-        cargaProd(producto3)
-        avisar()
-        
+       fetching(2)
     }else {
       console.log("error")
     } 
 }
 
 //defino funciones
+
+
+const fetching=async(id)=>{
+
+    const respu=await fetch ('/producto.json')
+        const data =await respu.json()
+        const item = data[id]
+        console.log(item)
+        cargaProd(item)
+        avisar()
+}
 
 function guardarLocalStorage(key, value) {
     return localStorage.setItem(key, value)
@@ -70,7 +65,7 @@ function cargaProd(obj){
         mostrarItemsLocalStorage()
 }
 function mostrarItemsLocalStorage(){
-    //let listaPrev = document.getElementById("listaPrev")
+    
     const listaPLS = JSON.parse(localStorage.getItem("listaProd"))
     listaPrev.textContent = ""
 

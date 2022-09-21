@@ -1,0 +1,5 @@
+[
+    {"marca":"Asus", "procesador":"r7","precio":180000},
+    {"marca":"Dell", "procesador":"r5","precio":140000},
+    {"marca":"Lenovo", "procesador":"r3","precio":100000}
+]
