@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilo/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <title>BTX</title>
+</head>
+<body>
+  <div class="titulo">
+    <h1>BTX COMPUTACION</h1>
+    <h2>Hola <span id="user"></span> ¡Aprovechá las ofertas destacadas!</h2>
+    <span id="user"></span>
+  </div>
+  <div id="productos">
+    <div class="container">  
+      <div class="card">
+
+        <div class="imgBox">
+          <img src="./img/Asus-Laptop-PNG-Picture.png" alt="1" class="note">
+        </div>
+      
+        <div class="contentBox">
+          <h3>Asus ryzen7 8gb 240SSD</h3>
+          <h2 class="price">$ 180.000 </h2>
+          <div >
+            <button id="prod1">Agregar a carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+
+        <div class="imgBox">
+          <img src="./img/dell-laptop copia.png" alt="2" class="note">
+        </div>
+      
+        <div class="contentBox">
+          <h3>Dell Ryzen 5 8gb 240 SDD</h3>
+          <h2 class="price">$140.000</h2>
+          <div >
+            <button id="prod2">Agregar a carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+
+        <div class="imgBox">
+          <img src="./img/lenovo-laptop.png" alt="3" class="note">
+        </div>
+      
+        <div class="contentBox">
+          <h3>Lenovo Ryzen 3 4g 120SSD</h3>
+          <h2 class="price">$100.000</h2>
+          <button id="prod3">Agregar a carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="carrito">
+    <div id="listaPrev"></div>
+      
+    <div class="botonC">
+      <input type="button"  value="Vaciar Carrito" id="vaciarCarrito">
+    </div>
+
+    <div>
+      <button id="verProd">Finalizar Compra</button>
+    </div>
+    <div id="totality"></div>
+  </div>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,4 +1,3 @@
-
 //defino variables
 
 let total = 0
@@ -9,21 +8,21 @@ const productos = []
 
 //defino dom
 
+const vaciarCarrito = document.getElementById("vaciarCarrito");
+const pulsar = document.getElementById("verProd");
+const precioTotal = document.getElementById("totality");
 
-
-//const prodAlistados = document.getElementById("prodAlistados")
-const vaciarCarrito = document.getElementById("vaciarCarrito")
-//const precioTotal = document.getElementById("precioTotal")
-const pulsar = document.getElementById("verProd")
-const precioTotal = document.getElementById("totality")
 //traigo con id 
 
-let prod1= document.getElementById("prod1")
-let prod2= document.getElementById("prod2")
-let prod3= document.getElementById("prod3")
+let prod1= document.getElementById("prod1");
+let prod2= document.getElementById("prod2");
+let prod3= document.getElementById("prod3");
+let user =document.getElementById("user");
+let usuario= localStorage.getItem("usuario");
+user.innerHTML = usuario;
 
 
-let listaProd =document.getElementById("productos")
+let listaProd =document.getElementById("productos");
 listaProd.onclick =function(e){
     e.preventDefault()
     let opc = e.target.id
@@ -114,13 +113,13 @@ function alertaPos(){
         destination: "https://github.com/apvarun/toastify-js",
         newWindow: true,
         close: true,
-        gravity: "bottom", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
+        gravity: "bottom", 
+        position: "right", 
+        stopOnFocus: true, 
         style: {
         background: "linear-gradient(to right, #00b09b, #0e0101)",
         },
-        onClick: function(){} // Callback after click
+        onClick: function(){} 
     })
     .showToast();
 }
@@ -134,14 +133,14 @@ function alertaNeg(){
         destination: "https://github.com/apvarun/toastify-js",
         newWindow: true,
         close: true,
-        gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
+        gravity: "top", 
+        position: "right", 
+        stopOnFocus: true, 
         style: {
         background: "linear-gradient(to right, #741b1b, #0e0101)",
         
         },
-        onClick: function(){} // Callback after click
+        onClick: function(){} 
     })
     .showToast();
 }
